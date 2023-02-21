@@ -1,0 +1,44 @@
+/*********************************************
+Enoncé du problème :  
+
+Le problème des n reines consiste à déplacer n reines sur un damier
+de taille n ∗ n de telle façon que deux reines (se déplaçant comme
+aux jeu des échecs) ne soient jamais en position de prise mututelle.
+
+Un exemple de solution pour le problème des 4-reines : 
+
+	x  o  x  x
+	x  x  x  o
+	o  x  x  x  
+	x  x  o  x
+
+*********************************************/
+
+# On prend également en compte que les diagonale ne doivent pas être les mêmes
+
+X={ ind = 1...n	//représente la ligne
+	col[ind]  // représente les colonnes
+	echequier[ind][ind] 
+	
+	##### Ou ######
+	ind = 1....n
+	Lind //ligne
+	Colind //colonne
+}
+
+
+d={ind}
+D=d^(n*n)
+
+
+C= { 
+		forall( i,j in 1...n : i<j){  Col(i) != Col(j)
+									  Col(i)+i != Col(j)+j
+									  Col(i)-i != Col(j)-j
+									}
+									
+		#### Ou ####
+		Col(i) != Col(j)
+		Col(i)+i != Col(j)+j
+		Col(i)-i != Col(j)-j
+	}

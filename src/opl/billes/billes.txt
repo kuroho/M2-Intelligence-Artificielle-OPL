@@ -1,0 +1,95 @@
+/*****************************************************
+Enoncé du problème :  
+
+Quatre enfants, Anne, Bernard, Claudine et Denis, ayant tous un âge différent 
+(entre 4 et 7 ans), jouent chacun à différents endroits avec des billes de 
+couleur bleue, jaune, noire ou rouge. On sait de plus que : 
+
+1. Denis joue dans le parc et n’a pas 4 ans, contrairement à
+   l’enfant qui a des billes bleues.
+
+2. La fille de 6 ans a des billes jaunes.
+
+3. L’enfant qui joue avec des billes noires est plus âgé que l’enfant qui joue 
+   dans le jardin mais plus jeune que Anne.
+
+4. Anne, qui joue dans sa chambre, a 1 an de plus que l’enfant qui joue dans le salon.
+
+
+(NB : l'énoncé vous est rappelé pour que vous puissiez copier/coller tel quel 
+	  les phrases de l'énoncé dans vos modèles)
+
+*********************************************************/
+
+/* Formalisation en tant que problème de satisfaction de contraintes */
+
+X = { Anne, Bernard, Claudine, Denis, Bleue, Jaune, Noire, Rouge , Parc , Chambre, Salon , Jardin}
+	
+D =  d^12 ou d = {4....7}
+
+
+
+C =  {
+
+Les enfant on un âge differents:
+   Anne != Bernard
+   Anne != Claudine `
+   Anne != Denis
+   Bernard != Claudine
+   Bernard != Denis
+   Claudine != Denis 
+
+Les couleur ont un âge différents :
+   Bleue!= Jaune
+   Bleue != Noire 
+   Bleue!= Rouge
+   Jaune != Noire 
+   Jaune != Rouge
+   Rouge!= Noire 
+
+Tous les endroits ront un âge differents affecté :
+   Parc!= Salon
+   Parc!= Jardin
+   Parc!= Chambre
+   Chambre != Salon
+   Chambre!= Jardin 
+   Salon!= Jardin 
+
+
+  1. Denis joue dans le parc et n’a pas 4 ans, contrairement à
+   l’enfant qui a des billes bleues : 
+	Denis = Parc
+	Denis != 4 
+	Bleue = 4
+	//Bleue != Parc
+  
+  2. La fille de 6 ans a des billes jaunes.
+  	Bernard != 6 
+	Denis != 6 
+	Jaune = 6
+	Denis != Jaune 
+	Bernard != Jaune
+	
+  3. L’enfant qui joue avec des billes noires est plus âgé que l’enfant qui joue 
+   dans le jardin mais plus jeune que Anne.
+	Noire > Jardin
+	Noire < Anne 
+	
+  4. Anne, qui joue dans sa chambre, a 1 an de plus que l’enfant qui joue dans le salon.
+	// Solution 1
+	Anne = Chambre 
+	Anne > Salon 
+	// Solution 2
+	Chambre = Salon +1
+	Anne = Salon +1
+
+   // TODO 
+   // Décrire ici librement les contraintes en faisant précéder chaque contrainte
+   // (ou groupe de contraintes) par le texte de l'énoncé qui lui correspond.
+   //
+   // NB : dans chacun des modèles que vous construirez ultérieurement, on vous 
+   // demande de procéder de la même façon, i.e. de recopier chaque portion 
+   // du texte initial (sans le déformer) dans un commentaire,
+   // suivi immédiatement de la (les) contrainte(s) qui lui correspond(ent).
+
+}
